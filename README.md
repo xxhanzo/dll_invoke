@@ -1,11 +1,11 @@
 # dll_invoke
-1. # 安装依赖
+# 1.安装依赖
 
 ```Python
 pip install -r requirements.txt
 ```
 
-1. # 使用方法
+# 2. 使用方法
 
 ## 2.1 查看函数列表
 
@@ -228,6 +228,6 @@ pip install -r requirements.txt
 ![image](https://github.com/xxhanzo/dll_invoke/assets/97886040/044dbdf9-56c2-4331-927d-2440439a9918)
 
 
-1. # 使用流程图
+# 3. 使用流程图
 
 ![whiteboard_exported_image (1)](https://github.com/xxhanzo/dll_invoke/assets/97886040/207c6c88-7342-4530-9fac-1522a73fdea2)
