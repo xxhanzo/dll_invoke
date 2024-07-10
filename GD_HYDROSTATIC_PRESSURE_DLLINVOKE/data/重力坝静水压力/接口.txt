@@ -1,0 +1,31 @@
+[DllImport("GD_HYDROSTATIC_PRESSURE", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void GD_HYDROSTATIC_PRESSURE(
+//输入参数
+double[] A,B,C,D,E,F,		//坝体节点坐标，左上角开始顺时针，各数组大小为2
+ref double WL_Up，		//上游水位
+ref double WL_Down，	//下游水位
+ref double density，		//水密度
+ref double Acceleration,	//重力加速度
+
+double[] A_F,		//AF段静水压力,输出，数组大小4，（合力大小，合力点坐标x,y，夹角）
+double[] F_E,		//FE段静水压力,输出，数组大小4，（合力大小，合力点坐标x,y，夹角）
+double[] C_D,		//CD段静水压力,输出，数组大小4，（合力大小，合力点坐标x,y，夹角）
+double[] B_C,		//BC段静水压力,输出，数组大小4，（合力大小，合力点坐标x,y，夹角）
+double[,] AREA_AF,		//AF段静水压力图,输出，二维数组大小(2,5)，（5个坐标相连，有重复点，若都为0则不画）
+
+double[,] AREA_FE,		//AF段静水压力图,输出，二维数组大小(2,5)，（5个坐标相连，有重复点，若都为0则不画）
+double[,] AREA_CD,		//AF段静水压力图,输出，二维数组大小(2,5)，（5个坐标相连，有重复点，若都为0则不画）
+double[,] AREA_BC)		//AF段静水压力图,输出，二维数组大小(2,5)，（5个坐标相连，有重复点，若都为0则不画）
+
+     
+例：
+    A = [0,100]
+    B = [10,100]
+    C = [10,85]
+    D = [80,0]
+    E = [-5,0]
+    F = [0,20]
+    WL_Up = 90
+    WL_Down = 10
+    Density = 1000
+    Gravity = 9.8
