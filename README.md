@@ -1,105 +1,134 @@
 # dll_invoke
-1. 安装依赖
+1. # 安装依赖
+
+```Python
 pip install -r requirements.txt
-2. 使用方法
-2.1 查看函数列表
+```
+
+1. # 使用方法
+
+## 2.1 查看函数列表
+
 1. 打开cmd窗口
-2. 输入命令：`curl -H "apiKey: a1234567890" http://127.0.0.1:5000/functions`
+
+2. 输入命令：``curl -H "apiKey: a1234567890" ``http://127.0.0.1:5000/functions````
+
 3. 输出：
-[
-  {
-    "func_id": 1,
-    "func_name": "GD_HYDROSTATIC_PRESSURE"
-  }
-]
+
+   1. ```Python
+      [
+        {
+          "func_id": 1,
+          "func_name": "GD_HYDROSTATIC_PRESSURE"
+        }
+      ]
+      ```
+
 4. 展示：
-[图片]
-2.2 查看函数参数
-1. 输入命令：`curl -H "apiKey: a1234567890" http://127.0.0.1:5000/functions/1`
+
+![image](https://github.com/xxhanzo/dll_invoke/assets/97886040/abe87941-b7cb-4124-b404-074d5b8a7dfa)
+
+## 2.2 查看函数参数
+
+1. 输入命令：``curl -H "apiKey: a1234567890" ``http://127.0.0.1:5000/functions/1````
+
 2. 输出：
-{
-  "func_name": "GD_HYDROSTATIC_PRESSURE",
-  "params": [
-    [
-      "double[]",
-      "A"
-    ],
-    [
-      "double[]",
-      "B"
-    ],
-    [
-      "double[]",
-      "C"
-    ],
-    [
-      "double[]",
-      "D"
-    ],
-    [
-      "double[]",
-      "E"
-    ],
-    [
-      "double[]",
-      "F"
-    ],
-    [
-      "ref double",
-      "WL_Up"
-    ],
-    [
-      "ref double",
-      "WL_Down"
-    ],
-    [
-      "ref double",
-      "Density"
-    ],
-    [
-      "ref double",
-      "Acceleration"
-    ],
-    [
-      "double[]",
-      "A_F"
-    ],
-    [
-      "double[]",
-      "F_E"
-    ],
-    [
-      "double[]",
-      "C_D"
-    ],
-    [
-      "double[]",
-      "B_C"
-    ],
-    [
-      "double[,]",
-      "AREA_AF"
-    ],
-    [
-      "double[,]",
-      "AREA_FE"
-    ],
-    [
-      "double[,]",
-      "AREA_CD"
-    ],
-    [
-      "double[,]",
-      "AREA_BC"
-    ]
-  ]
-}
+
+   1. ```Python
+      {
+        "func_name": "GD_HYDROSTATIC_PRESSURE",
+        "params": [
+          [
+            "double[]",
+            "A"
+          ],
+          [
+            "double[]",
+            "B"
+          ],
+          [
+            "double[]",
+            "C"
+          ],
+          [
+            "double[]",
+            "D"
+          ],
+          [
+            "double[]",
+            "E"
+          ],
+          [
+            "double[]",
+            "F"
+          ],
+          [
+            "ref double",
+            "WL_Up"
+          ],
+          [
+            "ref double",
+            "WL_Down"
+          ],
+          [
+            "ref double",
+            "Density"
+          ],
+          [
+            "ref double",
+            "Acceleration"
+          ],
+          [
+            "double[]",
+            "A_F"
+          ],
+          [
+            "double[]",
+            "F_E"
+          ],
+          [
+            "double[]",
+            "C_D"
+          ],
+          [
+            "double[]",
+            "B_C"
+          ],
+          [
+            "double[,]",
+            "AREA_AF"
+          ],
+          [
+            "double[,]",
+            "AREA_FE"
+          ],
+          [
+            "double[,]",
+            "AREA_CD"
+          ],
+          [
+            "double[,]",
+            "AREA_BC"
+          ]
+        ]
+      }
+      ```
+
 3. 展示：（过长只展示部分）
-[图片]
-2.3 调用函数
+
+![image](https://github.com/xxhanzo/dll_invoke/assets/97886040/c72db4e0-1dc1-4be2-b0c3-34712c238afb)
+
+## 2.3 调用函数
+
 1. 输入对应的参数:
-curl -X POST http://127.0.0.1:5000/functions/1/call -H "Content-Type: application/json" -H "apiKey: a1234567890" -d "{\"A\": [0, 100], \"B\": [10, 100], \"C\": [10, 85], \"D\": [80, 0], \"E\": [-5, 0], \"F\": [0, 20], \"WL_Up\": 10, \"WL_Down\": 110, \"Density\": 1000, \"Acceleration\": 9.8}"
+
+   1. ```Python
+      curl -X POST http://127.0.0.1:5000/functions/1/call -H "Content-Type: application/json" -H "apiKey: a1234567890" -d "{\"A\": [0, 100], \"B\": [10, 100], \"C\": [10, 85], \"D\": [80, 0], \"E\": [-5, 0], \"F\": [0, 20], \"WL_Up\": 10, \"WL_Down\": 110, \"Density\": 1000, \"Acceleration\": 9.8}"
+      ```
+
 2. 输出：
+
+```Python
 {
   "AREA_AF": [
     [
@@ -190,8 +219,15 @@ curl -X POST http://127.0.0.1:5000/functions/1/call -H "Content-Type: applicatio
     -14.036243467926479
   ]
 }
-3. 展示（过长只展示对应结果部分）及和原图数据对比：
-[图片]
-[图片]
-3. 使用流程图
-暂时无法在飞书文档外展示此内容
+```
+
+1. 展示（过长只展示对应结果部分）及和原图数据对比：
+
+![image](https://github.com/xxhanzo/dll_invoke/assets/97886040/3c25f37f-95df-4cc8-9427-d7a9d10adc86)
+
+![image](https://github.com/xxhanzo/dll_invoke/assets/97886040/044dbdf9-56c2-4331-927d-2440439a9918)
+
+
+1. # 使用流程图
+
+![whiteboard_exported_image (1)](https://github.com/xxhanzo/dll_invoke/assets/97886040/207c6c88-7342-4530-9fac-1522a73fdea2)
